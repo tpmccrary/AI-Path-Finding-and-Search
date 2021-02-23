@@ -1,4 +1,6 @@
 class MapGrid:
+
+    # Constructor, first called when the object is initialized.
     def __init__(self, mapFile):
         self.height = 0
         self.width = 0
@@ -32,6 +34,7 @@ class MapGrid:
                 splitLine = line.split()
                 self.goalLoc.append(splitLine[0])
                 self.goalLoc.append(splitLine[1])
+            # Finally, if we are past these first 3 lines, get the actaul grid.
             elif (lineNum >= 3):
                 splitLine = line.split()
                 self.grid.append(splitLine)

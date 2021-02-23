@@ -7,6 +7,9 @@ def main():
     mapFile = fileinput.input()
     # Create new map grid object.
     mapGrid = MapGrid(mapFile)
+
+    # Example:
+    print("The starting point: " + mapGrid.startLoc)
     
 
 
