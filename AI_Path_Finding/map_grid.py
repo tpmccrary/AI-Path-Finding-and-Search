@@ -8,6 +8,15 @@ class MapGrid:
     def __init__(self) -> None:
         pass
 
+    @staticmethod
+    def readMapFile(mapFile):
+        if (mapFile == None or mapFile == ""):
+            print("No file given. Exiting...")
+            exit(1)
+        print("Reading map file...")
 
-    def readMapFile():
+        for line in mapFile:
+            print(line)
+            
+
         return
