@@ -3,25 +3,27 @@ import queue
 class BFS:
     
     def BFS(map, start, goal):
-        visited = []
-        queue = [[start]]
-        
+        queue = [[start, []]] # starting point, empty path
+        queue.append(s)
+
+        #1-5 are allowed paths
+        #0s are not allowed paths
+
         if start == goal:
            return
 
-        while queue:
-            path = queue.pop()
-            node = path[-1]
+        while len(queue)>0:
+            node, path = queue.pop()
+            path.append(node)
+            visited(node, v)
 
-            if node is not visited:
-                neighbors = map[node]
+            if node == end:
+                return path
 
-                for neighbors in neighbors:
-                    new_path = list (path)
-                    new_path.append(neighbor)
-                    queue.append(new_path)
-
-                    if neighbor == goal:
-                        print("shortest path = ", *new_path)
-                        return 
-                visited(append)
+            adj_nodes = neighbors(node, map)
+            
+            for item in adj_nodes:
+                if not visited(item, v):
+                    queue.append((item, path[:]))
+        
+        return None
