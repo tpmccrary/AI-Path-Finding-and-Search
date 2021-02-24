@@ -18,7 +18,7 @@ class MapGrid:
         if (mapFile == None or mapFile == ""):
             print("No file given. Exiting...")
             exit(1)
-        print("Reading map file...")
+        print("Reading file...")
 
         lineNum = 0
         # We go through every line in the data.
