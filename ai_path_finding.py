@@ -34,7 +34,7 @@ def main():
             print("FAILURE: Could not find path.")
 
         bfs.printStats()
-    if (algorithm == "IDS"):
+    elif (algorithm == "IDS"):
         print("IDS under development.\nExiting...")
     else:
         print("Please enter: BFS")
