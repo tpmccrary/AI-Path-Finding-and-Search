@@ -1,9 +1,11 @@
+import queue
+
 class BFS:
     
-    def BFS(map, start, end):
-        explored = []
+    def BFS(map, start, goal):
+        visited = []
         queue = [[start]]
-
+        
         if start == goal:
            return
 
