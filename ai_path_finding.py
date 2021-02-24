@@ -12,10 +12,7 @@ def main():
 
     fileName = sys.argv[1]
     algorithm = sys.argv[2]
-    
-    
-    
-    # TODO: Get input for algorithm type (i.e. BFS, IDS)
+        
     # Get the file from the user input.
     mapFile = fileinput.input(fileName)
     # Create new map grid object.
@@ -37,6 +34,8 @@ def main():
             print("FAILURE: Could not find path.")
 
         bfs.printStats()
+    if (algorithm == "IDS"):
+        print("IDS under development.\nExiting...")
     else:
         print("Please enter: BFS")
         sys.exit(1)
