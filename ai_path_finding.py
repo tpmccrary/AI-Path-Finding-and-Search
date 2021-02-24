@@ -3,6 +3,7 @@ import AI_Path_Finding
 import fileinput
 from AI_Path_Finding.BFS import BFS
 import sys
+import subprocess
 
 def main():
     if (len(sys.argv) != 3):
@@ -23,7 +24,18 @@ def main():
     if (algorithm == "BFS"):
         print("Using BFS.")
         bfs = BFS()
-        bfs.bfsAlg(mapGrid)
+        foundGoal = False
+        try:
+            r = subprocess.run(['echo'], timeout=3)
+            foundGoal = bfs.bfsAlg(mapGrid)
+        except subprocess.TimeoutExpired:
+            print("Program Timed Out: 3min")
+        
+        if (foundGoal):
+            print("SUCCESS.")
+        else:
+            print("FAILURE: Could not find path.")
+
         bfs.printStats()
     else:
         print("Please enter: BFS")

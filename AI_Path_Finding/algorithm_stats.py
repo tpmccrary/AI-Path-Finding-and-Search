@@ -1,7 +1,7 @@
 class AlgorithmStats:
 
     def __init__(self):
-        self.pathCost = 0
+        self.pathCost = -1
         self.numExpanded = 0
         self.maxNodeInMem = 0
         self.runtime = 0
@@ -12,4 +12,7 @@ class AlgorithmStats:
         print("Number of nodes expands: " + str(self.numExpanded))
         print("Max number of nodes in memory: " + str(self.maxNodeInMem))
         print("Runtime: " + str(self.runtime) + "ms")
-        print("Path to goal: " + str(self.pathSeq))
+        if (self.pathSeq == []):
+            print("Path to goal: NULL")
+        else:
+            print("Path to goal: " + str(self.pathSeq))

@@ -1,3 +1,4 @@
+from timeit import default_timer as timer
 from AI_Path_Finding.algorithm_stats import AlgorithmStats
 import queue
 
@@ -25,20 +26,30 @@ class BFS(AlgorithmStats):
     # Start: row: 1 col: 2
     # Gaol:  row: 4 col: 3
     
+    # The Breadth First Search Algorithm.
     def bfsAlg(self, mapGrid):
+
+        timeStart = timer()
+
+        # Start and goal locations.
         startLocation = mapGrid.startLoc
         goalLocation = mapGrid.goalLoc
 
         q = queue.Queue()
         q.put(startLocation)
+
+        # Hashtable that holds the path given a node.
         prevNodes = {}
 
+        # Hashtable that holds the cost of a path given a node.
         cost = {}
         cost[str(startLocation)] = 0
 
+        # What nodes we have visited.
         discovered = []
         discovered.append(startLocation)
 
+        # Counter for holding the max number of nodes in the queue.
         maxInMem = 0
 
         while not q.empty():
@@ -49,12 +60,12 @@ class BFS(AlgorithmStats):
             currentNode = q.get()
             
             if (currentNode == goalLocation):
-                # BFS.tracePath(mapGrid, prevNodes)
-                # print(BFS.tracePath(mapGrid, prevNodes))
+                timeEnd = timer()
                 self.pathCost = cost[str(goalLocation)]
                 self.numExpanded = len(discovered)
                 self.maxNodeInMem = maxInMem
                 self.pathSeq = self.tracePath(mapGrid, prevNodes)
+                self.runtime = (timeEnd - timeStart) * 1000
                 return True
 
             for neighbor in BFS.getNeighbors(mapGrid, currentNode):
@@ -67,6 +78,10 @@ class BFS(AlgorithmStats):
                     if (str(neighbor) not in cost or cost[str(neighbor)] > newCost):
                         cost[str(neighbor)] = cost[str(currentNode)] + mapGrid.grid[neighbor[0]][neighbor[1]]
 
+        timeEnd = timer()
+        self.runtime = (timeEnd - timeStart) * 1000
+        self.numExpanded = len(discovered)
+        self.maxNodeInMem = maxInMem
         return False
 
 
