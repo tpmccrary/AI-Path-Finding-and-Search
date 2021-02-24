@@ -29,17 +29,22 @@ class BFS:
         q.put(startLocation)
         prevNodes = {}
 
+        cost = {}
+        cost[str(startLocation)] = 0
+
         discovered = []
         discovered.append(startLocation)
 
         # loc = []
 
         while not q.empty():
+            
             currentNode = q.get()
             
             if (currentNode == goalLocation):
                 # BFS.tracePath(mapGrid, prevNodes)
                 print(BFS.tracePath(mapGrid, prevNodes))
+                print(cost)
                 return currentNode
 
             for neighbor in BFS.getNeighbors(mapGrid, currentNode):
@@ -48,32 +53,13 @@ class BFS:
                     q.put(neighbor)
                     prevNodes[str(neighbor)] = currentNode
 
+                    newCost =cost[str(currentNode)] + mapGrid.grid[neighbor[0]][neighbor[1]]
+                
+                    if (str(neighbor) not in cost or cost[str(neighbor)] > newCost):
+                        cost[str(neighbor)] = cost[str(currentNode)] + mapGrid.grid[neighbor[0]][neighbor[1]]
+
         print("END OF WHILE, NEVER FOUND SOLUTION")
 
-    
-            
-        # explored = []
-        # queue = [[start]]
-
-        # if start == goal:
-        #    return
-
-        # while queue:
-        #     path = queue.pop()
-        #     node = path[-1]
-
-        #     if node is not visited:
-        #         neighbors = map[node]
-
-        #         for neighbors in neighbors:
-        #             new_path = list (path)
-        #             new_path.append(neighbor)
-        #             queue.append(new_path)
-
-        #             if neighbor == goal:
-        #                 print("shortest path = ", *new_path)
-        #                 return 
-        #         visited(append)
 
     # Returns the best path found by BFS.
     def tracePath(mapGrid, prevNodes):
