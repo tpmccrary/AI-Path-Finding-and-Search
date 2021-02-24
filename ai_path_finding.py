@@ -22,7 +22,9 @@ def main():
 
     if (algorithm == "BFS"):
         print("Using BFS.")
-        BFS.bfs(mapGrid)
+        bfs = BFS()
+        bfs.bfsAlg(mapGrid)
+        bfs.printStats()
     else:
         print("Please enter: BFS")
         sys.exit(1)

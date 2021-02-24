@@ -1,7 +1,11 @@
+from AI_Path_Finding.algorithm_stats import AlgorithmStats
 import queue
 
-class BFS:
+class BFS(AlgorithmStats):
     
+    def __init__(self):
+        super().__init__()
+
     # TODO: 
     # Repeat state checking. Check if the state has been generated before. Keep only the best path.
     # 3 min cut off.
@@ -21,7 +25,7 @@ class BFS:
     # Start: row: 1 col: 2
     # Gaol:  row: 4 col: 3
     
-    def bfs(mapGrid):
+    def bfsAlg(self, mapGrid):
         startLocation = mapGrid.startLoc
         goalLocation = mapGrid.goalLoc
 
@@ -35,34 +39,39 @@ class BFS:
         discovered = []
         discovered.append(startLocation)
 
-        # loc = []
+        maxInMem = 0
 
         while not q.empty():
+
+            if (q.qsize() > maxInMem):
+                maxInMem = q.qsize() 
             
             currentNode = q.get()
             
             if (currentNode == goalLocation):
                 # BFS.tracePath(mapGrid, prevNodes)
-                print(BFS.tracePath(mapGrid, prevNodes))
-                print(cost)
-                return currentNode
+                # print(BFS.tracePath(mapGrid, prevNodes))
+                self.pathCost = cost[str(goalLocation)]
+                self.numExpanded = len(discovered)
+                self.maxNodeInMem = maxInMem
+                self.pathSeq = self.tracePath(mapGrid, prevNodes)
+                return True
 
             for neighbor in BFS.getNeighbors(mapGrid, currentNode):
                 if (neighbor not in discovered):
                     discovered.append(neighbor)
                     q.put(neighbor)
                     prevNodes[str(neighbor)] = currentNode
-
                     newCost =cost[str(currentNode)] + mapGrid.grid[neighbor[0]][neighbor[1]]
                 
                     if (str(neighbor) not in cost or cost[str(neighbor)] > newCost):
                         cost[str(neighbor)] = cost[str(currentNode)] + mapGrid.grid[neighbor[0]][neighbor[1]]
 
-        print("END OF WHILE, NEVER FOUND SOLUTION")
+        return False
 
 
     # Returns the best path found by BFS.
-    def tracePath(mapGrid, prevNodes):
+    def tracePath(self, mapGrid, prevNodes):
         path = []
 
         node = mapGrid.goalLoc
