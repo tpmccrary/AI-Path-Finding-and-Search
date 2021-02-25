@@ -3,7 +3,7 @@
 ***
 
 This asssignment focuses on simplified pathfinding problems using Breath First Search (BFS) with a 3 minutes time cuttoff. The problem will search for the shortest path from a given start location to a given goal location on a square grid which is weighted. The agent is allowed to move in directions: up, down, left & right; however, they are not allowed to move diagonally or outside the bounds of the map. The algorithm implements repeat-state checking, thus we do not revisit states that have already been visited.  
-### The code prints out the following information:
+##### The code prints out the following information:
 
                 1.	The cost of the path found
                 2.	The number of nodes expanded 
