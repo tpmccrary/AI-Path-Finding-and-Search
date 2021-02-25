@@ -1,3 +1,4 @@
+# Super class to hold the stats of the algorithms.
 class AlgorithmStats:
 
     def __init__(self):
@@ -7,6 +8,7 @@ class AlgorithmStats:
         self.runtime = 0
         self.pathSeq = []
 
+    # Prints the stats.
     def printStats(self):
         print("Cost of the path found: " + str(self.pathCost))
         print("Number of nodes expands: " + str(self.numExpanded))

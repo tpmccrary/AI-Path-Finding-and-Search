@@ -2,20 +2,12 @@ from timeit import default_timer as timer
 from AI_Path_Finding.algorithm_stats import AlgorithmStats
 import queue
 
+# Class for the Breadth first Search algorithm
 class BFS(AlgorithmStats):
     
     def __init__(self):
         super().__init__()
 
-    # TODO: 
-    # Repeat state checking. Check if the state has been generated before. Keep only the best path.
-    # 3 min cut off.
-    # For each algorithm print this out:
-    #   1. The cost of the path found.
-    #   2. The number of nodes expanded.
-    #   3. The max num of nodes held in memory.
-    #   4. The runntime of the algorithm in milliseconds.
-    #   5. The path to goal as a sequence of cordinates.
 
     # Example of grid:
     # [['2', '4', '2', '1', '4', '5', '2'], 
@@ -25,16 +17,19 @@ class BFS(AlgorithmStats):
     #  ['4', '3', '3', '2', '1', '0', '1']]
     # Start: row: 1 col: 2
     # Gaol:  row: 4 col: 3
+
     
-    # The Breadth First Search Algorithm.
+    # IMPORTANT: The Breadth First Search Algorithm.
     def bfsAlg(self, mapGrid):
 
+        # Timer.
         timeStart = timer()
 
         # Start and goal locations.
         startLocation = mapGrid.startLoc
         goalLocation = mapGrid.goalLoc
 
+        # Queue, critical for BFS.
         q = queue.Queue()
         q.put(startLocation)
 
@@ -53,7 +48,7 @@ class BFS(AlgorithmStats):
         maxInMem = 0
 
         while not q.empty():
-
+            # Logic for determining whats the max number of nodes that was held in the queue.
             if (q.qsize() > maxInMem):
                 maxInMem = q.qsize() 
             
@@ -68,16 +63,18 @@ class BFS(AlgorithmStats):
                 self.runtime = (timeEnd - timeStart) * 1000
                 return True
 
+            # Goes thorugh the current nodes neighbors.
             for neighbor in BFS.getNeighbors(mapGrid, currentNode):
                 if (neighbor not in discovered):
                     discovered.append(neighbor)
                     q.put(neighbor)
                     prevNodes[str(neighbor)] = currentNode
-                    newCost =cost[str(currentNode)] + mapGrid.grid[neighbor[0]][neighbor[1]]
+                    newCost = cost[str(currentNode)] + mapGrid.grid[neighbor[0]][neighbor[1]]
                 
                     if (str(neighbor) not in cost or cost[str(neighbor)] > newCost):
                         cost[str(neighbor)] = cost[str(currentNode)] + mapGrid.grid[neighbor[0]][neighbor[1]]
 
+        # If we reach here, that means the goal was not found.
         timeEnd = timer()
         self.runtime = (timeEnd - timeStart) * 1000
         self.numExpanded = len(discovered)
@@ -102,7 +99,7 @@ class BFS(AlgorithmStats):
         return []
         
 
-
+    # Gets the neighbors given the node and the grid.
     def getNeighbors(mapGrid, currentNode):
         neighbors = []
         nodeRow = currentNode[0]
