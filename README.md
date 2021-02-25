@@ -3,11 +3,11 @@
 ***
 
 This asssignment focuses on simplified pathfinding problems using Breath First Search (BFS) with a 3 minutes time cuttoff. The problem will search for the shortest path from a given start location to a given goal location on a square grid which is weighted. The agent is allowed to move in directions: up, down, left & right; however, they are not allowed to move diagonally or outside the bounds of the map. The algorithm implements repeat-state checking, thus we do not revisit states that have already been visited.  The code prints out the following information:
-                1)	The cost of the path found
-                2)	The number of nodes expanded 
-                3)	The maximum number of nodes held in memory
-                4)	The runtime of the algorithm in milliseconds
-                5)	The path as a sequence of coordinates 
+                1.	The cost of the path found
+                2.	The number of nodes expanded 
+                3.	The maximum number of nodes held in memory
+                4.	The runtime of the algorithm in milliseconds
+                5.	The path as a sequence of coordinates 
 
 The algorithm prints 1 for path cost and Null for path sequence if it terminates without finding a result.
 
@@ -32,7 +32,7 @@ Git Hub: Version 2.6.3
 git clone https://github.com/tpmccrary/AI-Path-Finding-and-Search.git
 
 ## How to Run the Code
-command to run test 1: python3 ai_path_finding.py test/map.txt BFS
-command to run test 2: python3 ai_path_finding.py test/map.txt2 BFS
-command to run test 3: python3 ai_path_finding.py test/map.txt3 BFS
+1. command to run test 1: python3 ai_path_finding.py test/map.txt BFS
+2. command to run test 2: python3 ai_path_finding.py test/map.txt2 BFS
+3. command to run test 3: python3 ai_path_finding.py test/map.txt3 BFS
 
