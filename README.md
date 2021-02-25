@@ -14,6 +14,7 @@ This asssignment focuses on simplified pathfinding problems using Breath First S
 The algorithm prints 1 for path cost and Null for path sequence if it terminates without finding a result.
 
 ## Table of Contents
+
                 1) ai_path_finding.py 
                 2) AI_Path_Finding.py (Folder)
                         a) BFS.py
@@ -26,9 +27,10 @@ The algorithm prints 1 for path cost and Null for path sequence if it terminates
                 4) README.md
 
 ## Technologies used 
-Python: Version 3.9.2
-Visual Studio Code: Version 1.53.2
-Git Hub: Version 2.6.3
+
+1. Python: Version 3.9.2
+2. Visual Studio Code: Version 1.53.2
+3. Git Hub: Version 2.6.3
 
 ## Instillation 
 git clone https://github.com/tpmccrary/AI-Path-Finding-and-Search.git
