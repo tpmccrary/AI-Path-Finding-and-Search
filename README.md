@@ -35,8 +35,6 @@ The algorithm prints 1 for path cost and Null for path sequence if it terminates
 2. Visual Studio Code: Version 1.53.2
 3. Git Hub: Version 2.6.3
 
-## Installation 
-git clone https://github.com/tpmccrary/AI-Path-Finding-and-Search.git
 
 ## How to Run the Code
 In order to run the code, you must be in the root directory and use these commands:
