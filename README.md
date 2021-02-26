@@ -44,11 +44,11 @@ In order to run the code, you must be in the root directory and use these comman
 
 ### Performance
 1. Test 1:
-- Cost of path: 14
-- Number of nodes expanded: 25
-- Max nodes in memory: 7
-- Runtime: 0.22280006669461727ms
-- Path to goal: [[1, 2], [2, 2], [3, 2], [4, 2], [4, 3]]
+    - Cost of path: 14
+    - Number of nodes expanded: 25
+    - Max nodes in memory: 7
+    - Runtime: 0.22280006669461727ms
+    - Path to goal: [[1, 2], [2, 2], [3, 2], [4, 2], [4, 3]]
 
 ## Technologies used 
 
