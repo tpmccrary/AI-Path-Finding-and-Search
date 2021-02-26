@@ -49,7 +49,7 @@ In order to run the code, you must be in the root directory and use these comman
     - Max nodes in memory: 7
     - Runtime: 0.22280006669461727ms
     - Path to goal: [[1, 2], [2, 2], [3, 2], [4, 2], [4, 3]]
-2. Test 3 (10x10):
+2. Test 2 (10x10):
     - Cost of path: 37
     - Number of nodes expanded: 88
     - Max nodes in memory: 10
