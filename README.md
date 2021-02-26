@@ -38,9 +38,9 @@ The algorithm prints 1 for path cost and Null for path sequence if it terminates
 ## How to Run the Code
 In order to run the code, you must be in the root directory and use these commands:
 
-1. Command to run test 1: python3 ai_path_finding.py test/map.txt BFS
-2. Command to run test 2: python3 ai_path_finding.py test/map2.txt BFS
-3. Command to run test 3: python3 ai_path_finding.py test/map3.txt BFS
+1. Command to run test 1: **python3 ai_path_finding.py test/map.txt BFS**
+2. Command to run test 2: **python3 ai_path_finding.py test/map2.txt BFS**
+3. Command to run test 3: **python3 ai_path_finding.py test/map3.txt BFS**
 
 ## Technologies used 
 
