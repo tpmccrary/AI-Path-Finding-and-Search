@@ -42,13 +42,25 @@ In order to run the code, you must be in the root directory and use these comman
 2. Command to run Test 2: **python3 ai_path_finding.py test/map2.txt BFS**
 3. Command to run Test 3: **python3 ai_path_finding.py test/map3.txt BFS**
 
-### Performance
-1. Test 1:
+### Performance on Test Cases
+1. Test 1 (5x5):
     - Cost of path: 14
     - Number of nodes expanded: 25
     - Max nodes in memory: 7
     - Runtime: 0.22280006669461727ms
     - Path to goal: [[1, 2], [2, 2], [3, 2], [4, 2], [4, 3]]
+2. Test 3 (10x10):
+    - Cost of path: 37
+    - Number of nodes expanded: 88
+    - Max nodes in memory: 10
+    - Runtime: 0.9296000935137272ms
+    - Path to goal:  [[1, 2], [2, 2], [3, 2], [4, 2], [5, 2], [6, 2], [7, 2], [8, 2], [8, 3], [8, 4], [8, 5], [8, 6], [8, 7], [8, 8]]
+2. Test 3 (20x20):
+    - Cost of path: 96
+    - Number of nodes expanded: 363
+    - Max nodes in memory: 20
+    - Runtime: 6.577300024218857ms
+    - Path to goal: [[1, 2], [2, 2], [3, 2], [4, 2], [5, 2], [6, 2], [7, 2], [8, 2], [9, 2], [10, 2], [11, 2], [12, 2], [13, 2], [14, 2], [15, 2], [16, 2], [17, 2], [18, 2], [19, 2], [19, 3], [19, 4], [19, 5], [19, 6], [19, 7], [19, 8], [19, 9], [19, 10], [19, 11], [19, 12], [19, 13], [19, 14], [19, 15], [19, 16], [19, 17], [19, 18], [19, 19]]
 
 ## Technologies used 
 
