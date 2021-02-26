@@ -4,6 +4,10 @@ Authors of this project:
 - Timothy P. McCrary
 ***
 
+## Team Member Contribution 
+Both members (Tashi, Timothy) worked together when developing the code. This includes design, coding, testing, and documentation. 
+
+## About
 This asssignment focuses on simplified pathfinding problems using Breath First Search (BFS) with a 3 minutes time cuttoff. The problem will search for the shortest path from a given start location to a given goal location on a square grid which is weighted. The agent is allowed to move in directions: up, down, left & right; however, they are not allowed to move diagonally or outside the bounds of the map. The algorithm implements repeat-state checking, thus we do not revisit states that have already been visited.  
 ##### The code prints out the following information:
 
@@ -44,3 +48,6 @@ In order to run the code, you must be in the root directory and use these comman
 1. Command to run test 1: python3 ai_path_finding.py test/map.txt BFS
 2. Command to run test 2: python3 ai_path_finding.py test/map2.txt BFS
 3. Command to run test 3: python3 ai_path_finding.py test/map3.txt BFS
+
+
+
