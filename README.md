@@ -36,11 +36,19 @@ The algorithm prints 1 for path cost and Null for path sequence if it terminates
         |-- README.md
 
 ## How to Run the Code
-In order to run the code, you must be in the root directory and use these commands:
+In order to run the code, you must be in the root directory and use these commands (as of now, only supports BFS):
 
-1. Command to run test 1: **python3 ai_path_finding.py test/map.txt BFS**
-2. Command to run test 2: **python3 ai_path_finding.py test/map2.txt BFS**
-3. Command to run test 3: **python3 ai_path_finding.py test/map3.txt BFS**
+1. Command to run Test 1: **python3 ai_path_finding.py test/map.txt BFS**
+2. Command to run Test 2: **python3 ai_path_finding.py test/map2.txt BFS**
+3. Command to run Test 3: **python3 ai_path_finding.py test/map3.txt BFS**
+
+### Performance
+1. Test 1:
+- Cost of path: 14
+- Number of nodes expanded: 25
+- Max nodes in memory: 7
+- Runtime: 0.22280006669461727ms
+- Path to goal: [[1, 2], [2, 2], [3, 2], [4, 2], [4, 3]]
 
 ## Technologies used 
 
