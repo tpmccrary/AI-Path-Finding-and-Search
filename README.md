@@ -1,8 +1,7 @@
 # AI-Path-Finding-and-Search
-
-Authors of this project: 
-        Tashi Choden
-        Timothy P. McCrary
+Authors of this project:
+- Tashi Choden
+- Timothy P. McCrary
 ***
 
 This asssignment focuses on simplified pathfinding problems using Breath First Search (BFS) with a 3 minutes time cuttoff. The problem will search for the shortest path from a given start location to a given goal location on a square grid which is weighted. The agent is allowed to move in directions: up, down, left & right; however, they are not allowed to move diagonally or outside the bounds of the map. The algorithm implements repeat-state checking, thus we do not revisit states that have already been visited.  
