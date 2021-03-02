@@ -1,6 +1,7 @@
 from AI_Path_Finding.map_grid import MapGrid
 import fileinput
 from AI_Path_Finding.BFS import BFS
+from AI_Path_Finding.ids import IDS
 import sys
 import signal
 
@@ -46,6 +47,10 @@ def main():
         bfs.printStats()
     elif (algorithm == "IDS"):
         print("IDS under development.\nExiting...")
+        ids = IDS()
+        # print(ids.recursiveDls(mapGrid.startLoc, mapGrid, 6))
+        print(ids.depthLimitedSearch(mapGrid, 0))
+
     elif (algorithm == "AS"):
         pass
     else:
