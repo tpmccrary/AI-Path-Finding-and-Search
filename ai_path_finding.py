@@ -23,6 +23,7 @@ def main():
     # Breadth First Search
     if (algorithm == "BFS"):
         useBFS(mapGrid)
+    # Iterative Deepening Search
     elif (algorithm == "IDS"):
         useIDS(mapGrid)
     elif (algorithm == "AS"):
@@ -33,21 +34,39 @@ def main():
 
 def useIDS(mapGrid):
     print("Using IDS.")
+    # The ids object.
     ids = IDS()
-    # print(ids.recursiveDls(mapGrid.startLoc, mapGrid, 6))
-    foundGoal = ids.depthLimitedSearch(mapGrid, 0)
+
+    # Flag if the algorithm found the goal.
+    foundGoal = False
+
+    # Sets timout for 3min
+    signal.signal(signal.SIGALRM, handler)
+    signal.alarm(180)
+    try:
+        # IMPORTANT: This is where the actual IDS algorithm is called.
+        foundGoal = ids.depthLimitedSearch(mapGrid, 0)
+    except Exception:
+        print("FAILURE: Program Timed Out: 3min")
+    # Set the timout to 0.
+    signal.alarm(0)
+
     if (foundGoal):
         print("SUCCESS.")
     else:
         print("FAILURE: Could not find path.")
+
+    # This prints the stats of the algorithm.
     ids.printStats()
 
 def useBFS(mapGrid):
     print("Using BFS.")
     # Create BFS object.
     bfs = BFS()
+
     # Flag to determine if algorithm found the goal.
     foundGoal = False
+
     # Sets timout for 3min
     signal.signal(signal.SIGALRM, handler)
     signal.alarm(180)
@@ -58,6 +77,7 @@ def useBFS(mapGrid):
         print("FAILURE: Program Timed Out: 3min")
     # Set the timout to 0.
     signal.alarm(0)
+
     if (foundGoal):
         print("SUCCESS.")
     else:
