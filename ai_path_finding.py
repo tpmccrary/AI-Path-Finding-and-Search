@@ -10,7 +10,8 @@ def main():
     if (len(sys.argv) != 3):
         print("Incorrect commands.\nPlease enter: <filepath>.txt <searching_algorithm>\nExiting...")
         sys.exit(1)
-
+    
+    # TODO: Add logic that checks if arg is in list. This allows the user to run multiple args. if "BFS" in sys.args:
     # Get the arguments from user.
     fileName = sys.argv[1]
     algorithm = sys.argv[2]
