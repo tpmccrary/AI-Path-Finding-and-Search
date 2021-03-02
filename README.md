@@ -51,7 +51,7 @@ In order to run the code, you must be in the root directory and use these comman
 3. Test 3: **python3 ai_path_finding.py test/map3.txt IDS**
 4. Test 4: **python3 ai_path_finding.py test/map4.txt IDS**
 
-## Performance Test Cases
+## Performance on Test Cases
 
 ### BFS
 1. Test 1 (5x5):
@@ -72,7 +72,7 @@ In order to run the code, you must be in the root directory and use these comman
     - Max nodes in memory: 20
     - Runtime: 6.577300024218857ms
     - Path to goal: [[1, 2], [2, 2], [3, 2], [4, 2], [5, 2], [6, 2], [7, 2], [8, 2], [9, 2], [10, 2], [11, 2], [12, 2], [13, 2], [14, 2], [15, 2], [16, 2], [17, 2], [18, 2], [19, 2], [19, 3], [19, 4], [19, 5], [19, 6], [19, 7], [19, 8], [19, 9], [19, 10], [19, 11], [19, 12], [19, 13], [19, 14], [19, 15], [19, 16], [19, 17], [19, 18], [19, 19]]
-4. Test 3 (10x10, inaccessible goal):
+4. Test 4 (10x10, inaccessible goal):
     - Cost of path: -1
     - Number of nodes expanded: 84
     - Max nodes in memory: 10
