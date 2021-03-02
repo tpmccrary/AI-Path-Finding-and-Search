@@ -51,7 +51,9 @@ In order to run the code, you must be in the root directory and use these comman
 3. Test 3: **python3 ai_path_finding.py test/map3.txt IDS**
 4. Test 4: **python3 ai_path_finding.py test/map4.txt IDS**
 
-### Performance on BFS Test Cases
+## Performance Test Cases
+
+### BFS
 1. Test 1 (5x5):
     - Cost of path: 14
     - Number of nodes expanded: 25
