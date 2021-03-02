@@ -61,11 +61,11 @@ In order to run the code, you must be in the root directory and use these comman
     - Runtime: 0.22280006669461727ms
     - Path to goal: [[1, 2], [2, 2], [3, 2], [4, 2], [4, 3]]
 2. Test 2 (10x10):
-    - Cost of path: 37
-    - Number of nodes expanded: 88
+    - Cost of path: 15
+    - Number of nodes expanded: 39
     - Max nodes in memory: 10
-    - Runtime: 0.9296000935137272ms
-    - Path to goal:  [[1, 2], [2, 2], [3, 2], [4, 2], [5, 2], [6, 2], [7, 2], [8, 2], [8, 3], [8, 4], [8, 5], [8, 6], [8, 7], [8, 8]]
+    - Runtime: 0.35629999911179766ms
+    - Path to goal: [[1, 2], [2, 2], [2, 3], [2, 4], [2, 5], [2, 6]]
 3. Test 3 (20x20):
     - Cost of path: 96
     - Number of nodes expanded: 363
@@ -77,6 +77,32 @@ In order to run the code, you must be in the root directory and use these comman
     - Number of nodes expanded: 84
     - Max nodes in memory: 10
     - Runtime: 0.8950000010372605ms
+    - Path to goal: NULL
+
+### IDS
+1. Test 1 (5x5):
+    - Cost of path: 14
+    - Number of nodes expanded: 23
+    - Max nodes in memory: 22
+    - Runtime: 0.20629999926313758ms
+    - Path to goal: [[1, 2], [2, 2], [3, 2], [3, 3], [4, 3]]
+2. Test 2 (10x10):
+    - Cost of path: 15
+    - Number of nodes expanded: 13
+    - Max nodes in memory: 12
+    - Runtime: 0.2669000023161061ms
+    - Path to goal: [[1, 2], [2, 2], [2, 3], [2, 4], [2, 5], [2, 6]]
+3. Test 3 (20x20):
+    - Cost of path: 215
+    - Number of nodes expanded: 209
+    - Max nodes in memory: 208
+    - Runtime: 77.03010000113863ms
+    - Path to goal: [[1, 2], [1, 1], [0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [0, 6], [0, 7], [0, 8], [0, 9], [0, 10], [0, 11], [0, 12], [0, 13], [0, 14], [0, 15], [0, 16], [0, 17], [0, 18], [0, 19], [1, 19], [1, 18], [2, 18], [2, 17], [3, 17], [3, 16], [3, 15], [3, 14], [4, 14], [4, 13], [4, 12], [4, 11], [4, 10], [4, 9], [4, 8], [4, 7], [4, 6], [5, 6], [5, 7], [5, 8], [5, 9], [5, 10], [5, 11], [5, 12], [5, 13], [5, 14], [5, 15], [6, 15], [6, 16], [6, 17], [6, 18], [6, 19], [7, 19], [7, 18], [7, 17], [8, 17], [8, 18], [8, 19], [9, 19], [10, 19], [10, 18], [10, 17], [11, 17], [11, 16], [12, 16], [12, 17], [12, 18], [12, 19], [13, 19], [13, 18], [14, 18], [14, 19], [15, 19], [16, 19], [17, 19], [18, 19], [19, 19]]
+4. Test 4 (10x10, inaccessible goal):
+    - Cost of path: -1
+    - Number of nodes expanded: 84
+    - Max nodes in memory: 83
+    - Runtime: 21.330999999918276ms
     - Path to goal: NULL
 
 ## Technologies used 

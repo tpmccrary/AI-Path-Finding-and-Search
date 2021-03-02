@@ -52,8 +52,9 @@ class IDS(AlgorithmStats):
             # If the discovered list is the same as the discovered list for the previous iteration, that means we have gone through
             # all the nodes and the goal was not found.
             if (self.discoverd == self.lastDisc):
-                self.maxNodeInMem = self.maxNodes
                 self.timeEnd = timer()
+                self.maxNodeInMem = self.maxNodes
+                self.numExpanded = len(self.discoverd)
                 self.runtime = (self.timeEnd - self.timeStart) * 1000
                 return False
             
