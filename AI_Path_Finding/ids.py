@@ -1,10 +1,21 @@
 from AI_Path_Finding.algorithm_stats import AlgorithmStats
+from timeit import default_timer as timer
 
+
+# This class holds the logic for Iterative Deepening Search.
 class IDS(AlgorithmStats):
     
     def __init__(self):
+        # We initialize these two variables to remeber if we have been to a node.
+        # We have two so we can compare them to eachother and check if we have gone through the entire grid.
+        # Other variables are for recording algorithm stats and comparing.
         self.discoverd = []
         self.lastDisc = []
+        self.cost = {}
+        self.prevNodes = {}
+        self.maxNodes = 0
+        self.timerStart = 0
+        self.timeEnd = 0
         super().__init__()
 
 
@@ -17,29 +28,33 @@ class IDS(AlgorithmStats):
     # Start: row: 1 col: 2
     # Gaol:  row: 4 col: 3
 
-    # TODO:
-    # Cost of path found.
-    # Number of nodes expanded. (discovered)
-    # Max in memory. (stack)
-    # Runtime
-    # Path
-
-    # This is the itterative deepening function. We start at a limit, and iteravlity go up.
+    # This is the itterative deepening algorithm. We start at a limit, and iteravlity go up.
     def depthLimitedSearch(self, mapGrid, limit):
+        # Timer.
+        self.timeStart = timer()
 
         while True:
             # Add starting location to the discovered list.
             self.discoverd.append(mapGrid.startLoc)
+            self.cost[str(mapGrid.startLoc)] = 0
 
             # print("***ITERATION: " + str(limit) + "***")
             # Call the DLS algorithm with given limit.
             # If it returns True, we found the goal, else it returns false.
-            if (self.recursiveDls(mapGrid.startLoc, mapGrid, limit)):
+            if (self.recursiveDLS(mapGrid.startLoc, mapGrid, limit)):
+                self.pathCost = self.cost[str(mapGrid.goalLoc)]
+                self.pathSeq = self.tracePath(mapGrid, self.prevNodes)
+                self.numExpanded = len(self.discoverd)
+                self.timeEnd = timer()
+                self.runtime = (self.timeEnd - self.timeStart) * 1000
                 return True
 
             # If the discovered list is the same as the discovered list for the previous iteration, that means we have gone through
             # all the nodes and the goal was not found.
             if (self.discoverd == self.lastDisc):
+                self.maxNodeInMem = self.maxNodes
+                self.timeEnd = timer()
+                self.runtime = (self.timeEnd - self.timeStart) * 1000
                 return False
             
             # The current discovered list is saved here so we can compare later.
@@ -47,13 +62,18 @@ class IDS(AlgorithmStats):
 
             # Reset the discovered list for the new iteration.
             self.discoverd = []
+            self.cost = {}
+            self.prevNodes = {}
+            self.maxNodes = 0
+            self.maxNodeInMem = 0
 
             limit += 1
 
+    
 
     # This is depth limited search done recursively.
-    # It is done recursiley so we can "remember" the previous limits.
-    def recursiveDls(self, currentNode, mapGrid, limit):
+    # It is done recursively so we can "remember" the previous limits.
+    def recursiveDLS(self, currentNode, mapGrid, limit):
 
         # print("Current Node: " + str(currentNode) + " at level:  " + str(limit))
         # Check if the current node is our goal.
@@ -70,11 +90,42 @@ class IDS(AlgorithmStats):
             if (neighbor not in self.discoverd):
                 # print(str(neighbor) + " at level: " + str(limit))
                 self.discoverd.append(neighbor)
+                
+                # This is the check for the max number of nodes in memeory.
+                self.maxNodes += 1
+                if (self.maxNodes > self.maxNodeInMem):
+                    self.maxNodeInMem = self.maxNodes
+
+                # Hashtable reconstructs the path from node.
+                self.prevNodes[str(neighbor)] = currentNode
+                
+                # Hashtable that stores how much it cost to get to that position.
+                newCost = self.cost[str(currentNode)] + mapGrid.grid[neighbor[0]][neighbor[1]]
+                
+                if (str(neighbor) not in self.cost or self.cost[str(neighbor)] > newCost):
+                    self.cost[str(neighbor)] = self.cost[str(currentNode)] + mapGrid.grid[neighbor[0]][neighbor[1]]
+
                 # Call the DLS again but we count down the limit.
-                if (self.recursiveDls(neighbor, mapGrid, limit - 1)):
+                if (self.recursiveDLS(neighbor, mapGrid, limit - 1)):
                     return True
         return False
 
+
+    # Returns the best path found by BFS.
+    def tracePath(self, mapGrid, prevNodes):
+        path = []
+
+        node = mapGrid.goalLoc
+        while (node != mapGrid.startLoc):
+            path.append(node)
+            node = prevNodes[str(node)]
+            if (node == mapGrid.startLoc):
+                path.append(node)
+        path.reverse()
+
+        if (path[0] == mapGrid.startLoc):
+            return path
+        return []
 
 
 

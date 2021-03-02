@@ -22,40 +22,48 @@ def main():
 
     # Breadth First Search
     if (algorithm == "BFS"):
-        print("Using BFS.")
-        # Create BFS object.
-        bfs = BFS()
-        # Flag to determine if algorithm found the goal.
-        foundGoal = False
-        # Sets timout for 3min
-        signal.signal(signal.SIGALRM, handler)
-        signal.alarm(180)
-        try:
-            # IMPORTANT: This is where the actual BFS algorithm is called.
-            foundGoal = bfs.bfsAlg(mapGrid)
-        except Exception:
-            print("FAILURE: Program Timed Out: 3min")
-        
-        # Set the timout to 0.
-        signal.alarm(0)
-        if (foundGoal):
-            print("SUCCESS.")
-        else:
-            print("FAILURE: Could not find path.")
-
-        # Prints the stats from the algorithm.
-        bfs.printStats()
+        useBFS(mapGrid)
     elif (algorithm == "IDS"):
-        print("IDS under development.\nExiting...")
-        ids = IDS()
-        # print(ids.recursiveDls(mapGrid.startLoc, mapGrid, 6))
-        print(ids.depthLimitedSearch(mapGrid, 0))
-
+        useIDS(mapGrid)
     elif (algorithm == "AS"):
         pass
     else:
         print("Please enter: BFS")
         sys.exit(1)
+
+def useIDS(mapGrid):
+    print("Using IDS.")
+    ids = IDS()
+    # print(ids.recursiveDls(mapGrid.startLoc, mapGrid, 6))
+    foundGoal = ids.depthLimitedSearch(mapGrid, 0)
+    if (foundGoal):
+        print("SUCCESS.")
+    else:
+        print("FAILURE: Could not find path.")
+    ids.printStats()
+
+def useBFS(mapGrid):
+    print("Using BFS.")
+    # Create BFS object.
+    bfs = BFS()
+    # Flag to determine if algorithm found the goal.
+    foundGoal = False
+    # Sets timout for 3min
+    signal.signal(signal.SIGALRM, handler)
+    signal.alarm(180)
+    try:
+        # IMPORTANT: This is where the actual BFS algorithm is called.
+        foundGoal = bfs.bfsAlg(mapGrid)
+    except Exception:
+        print("FAILURE: Program Timed Out: 3min")
+    # Set the timout to 0.
+    signal.alarm(0)
+    if (foundGoal):
+        print("SUCCESS.")
+    else:
+        print("FAILURE: Could not find path.")
+    # Prints the stats from the algorithm.
+    bfs.printStats()
 
 # Not sure what this does, but it handles the timeout (alarm).   
 def handler(signum, frame):
