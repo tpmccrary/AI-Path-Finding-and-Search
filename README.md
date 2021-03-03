@@ -23,6 +23,7 @@ The algorithm prints 1 for path cost and Null for path sequence if it terminates
         AI-Path-Finding-and-Search/
         |-- AI_Path_Finding/
         |   |-- __init__.py
+        |   |-- a_star.py
         |   |-- algorithm_stats.py
         |   |-- BFS.py
         |   |-- ids.py
