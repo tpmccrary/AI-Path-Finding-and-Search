@@ -2,6 +2,7 @@ from AI_Path_Finding.map_grid import MapGrid
 import fileinput
 from AI_Path_Finding.BFS import BFS
 from AI_Path_Finding.ids import IDS
+from AI_Path_Finding.a_star import AStar
 import sys
 import signal
 
@@ -27,12 +28,34 @@ def main():
     # Iterative Deepening Search
     elif (algorithm == "IDS"):
         useIDS(mapGrid)
+    # A Star Search
     elif (algorithm == "AS"):
-        pass
+        useAStar(mapGrid)
     else:
-        print("Please enter: BFS")
+        print("Please enter: BFS, IDS, or AS for algorihtm command.")
         sys.exit(1)
 
+# Where AStar is called.
+def useAStar(mapGrid):
+    aStar = AStar()
+    # Flag if the algorithm found the goal.
+    foundGoal = False
+    # Sets timout for 3min
+    signal.signal(signal.SIGALRM, handler)
+    signal.alarm(180)
+    # IMPORTANT: This is where the actaul AS algorithm is called.
+    try:
+        foundGoal = aStar.aStar(mapGrid)
+    except Exception:
+        print("FAILURE: Program Timed Out: 3min")
+    signal.alarm(0)
+    if (foundGoal):
+        print("SUCCESS.")
+    else:
+        print("FAILURE: Could not find path.")
+    aStar.printStats()
+
+# Where IDS is called.
 def useIDS(mapGrid):
     print("Using IDS.")
     # The ids object.
@@ -60,6 +83,7 @@ def useIDS(mapGrid):
     # This prints the stats of the algorithm.
     ids.printStats()
 
+# Where BFS is called.
 def useBFS(mapGrid):
     print("Using BFS.")
     # Create BFS object.
