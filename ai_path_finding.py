@@ -37,6 +37,7 @@ def main():
 
 # Where AStar is called.
 def useAStar(mapGrid):
+    print("Using A*.")
     aStar = AStar()
     # Flag if the algorithm found the goal.
     foundGoal = False
